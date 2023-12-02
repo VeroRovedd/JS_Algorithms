@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Volumen de una esfera</title>
+</head>
+<body>
+  <h1>ALGORITMO PARA CALCULAR EL VOLUMEN DE UNA ESFERA</h1>
+  
+  <script>
+    // Funciones para escribir en el document
+    function saltarLinea(saltos) {
+      for(var i = 0; i < saltos; i++) { 
+        document.write("<br>");
+      }
+    }
+
+    function imprimir(frase) {
+      document.write(frase);
+      saltarLinea(2);
+    }
+
+    // Función para validar si es número
+    function esNumero(num){
+      return !isNaN(parseFloat(num)) && isFinite(num); 
+    }
+
+    // Definición de variables
+    var medida;
+    var medidaValida;
+    var radio, diametro, volumen;
+    
+    
+    // Pedir datos al usuario
+    do {
+      medida = prompt("Ingresa si cuentas con diámetro o radio (d o r)");
+      if (medida=="d" || medida=="D" || medida=="r" || medida=="R") {
+        medidaValida = true;
+      } else {
+        medidaValida = false;
+      }
+    } while (medidaValida == false);
+
+    if (medida=="d" || medida=="D") {
+      console.log("Has elegido calcular el volumen de la esfera con diámetro.");
+      do {
+        diametro = parseFloat(prompt("Ingresa el diámetro: "));
+      }while(esNumero(diametro)!=true || diametro <= 0);
+    } else {
+      console.log("Has elegido calcular el volumen de la esfera con radio");
+      do {
+        radio = parseFloat(prompt("Ingresa el radio: "));
+      }while(esNumero(radio)!=true || radio <= 0);
+    }
+
+    // Hacer el cálculo
+    if (medida=="d" || medida=="D") {
+      radio = diametro/2;
+    } else {
+      diametro = radio*2;
+    }
+
+    volumen = (4/3) * Math.PI * (radio ^ 3);
+
+    // Mostrar resultado
+    imprimir(`Diámetro: ${diametro} Radio: ${radio}`);
+    imprimir(`El volumen de la esfera es: ${volumen}`);
+
+  </script>
+</body>
+</html>

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Área de un triángulo</title>
+</head>
+<body>
+  <h1>ALGORITMO PARA CALCULAR EL ÁREA DE UN TRIÁNGULO</h1>
+  <script>
+    // Funciones para escribir en el documento
+    function saltarLinea(saltos){
+      for(var i=0; i<saltos; i++){
+        document.write("<br>");
+      }
+    }
+
+    function imprimir(frase){
+      document.write(frase);
+      saltarLinea(2);
+    }
+
+    // Función para validar si es número
+    function esNumero(num){
+      return !isNaN(parseFloat(num)) && isFinite(num); 
+    }
+
+    // Definición de variables
+    var base, altura, area;
+
+    // Solicitar datos al usuario
+    do{
+      base = parseFloat(prompt("Introduce la base del triángulo (debe ser un número positivo)"));
+    } while(esNumero(base)!=true || base<=0);
+    
+    do{
+      altura = parseFloat(prompt("Introduce la altura del triángulo (debe ser un número positivo)"));
+    } while(esNumero(altura)!=true || altura<=0);
+    
+    // Realizar cálculos
+    area = (base*altura) / 2;
+    function esNumero(num){
+      return !isNaN(parseFloat(num)) && isFinite(num); 
+    }
+    // Presentar resultado
+    imprimir(`Tu triángulo tiene una base de ${base} y una altura de ${altura}`);
+    imprimir(`El área es de: ${area}`);
+  </script>
+</body>
+</html>

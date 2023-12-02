@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Fizz Buzz</title>
+</head>
+<body>
+  <h1>ALGORITMO FIZZBUZZ</h1>
+  <script>
+    // Funciones para escribir en el documento
+    function saltarLinea(saltos){
+      for(var i=0; i<saltos; i++){
+        document.write("<br>");
+      }
+    }
+
+    function imprimir(frase){
+      document.write(frase);
+      saltarLinea(2);
+    }
+
+    // Función para validar si es número
+    function esNumero(num){
+      return !isNaN(parseFloat(num)) && isFinite(num); 
+    }
+
+    // Definición de variables
+    var numero;
+    var cadena="";
+
+    // Solicitar datos al usuario
+    do{
+      numero = parseInt(prompt("Ingresa un número entero positivo"));
+    } while(esNumero(numero)!=true || numero<=0);
+
+    // Presentar resultado
+    for(var i=1; i<=numero; i++){
+      cadena="";
+      if(i%3==0){
+        cadena = "Fizz";
+      }
+      if(i%5==0){
+        cadena += "Buzz";
+      }
+
+      imprimir(`${cadena!=""? cadena : i}`);
+      //if(cadena!=""){ imprimir(`${i} ${cadena}`); }
+    }
+  </script>
+</body>
+</html>

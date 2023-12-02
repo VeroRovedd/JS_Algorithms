@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Factorial</title>
+</head>
+<body>
+  <h1>ALGORITMO PARA CALCULAR EL FACTORIAL DE UN NÚMERO</h1>
+  <script>
+    // Funciones para escribir en el documento
+    function saltarLinea(saltos){
+      for(var i=0; i<saltos; i++){
+        document.write("<br>");
+      }
+    }
+
+    function imprimir(frase){
+      document.write(frase);
+      saltarLinea(2);
+    }
+
+    // Función para validar si es número
+    function esNumero(num){
+      return !isNaN(parseFloat(num)) && isFinite(num); 
+    }
+
+    // Definición de variables
+    var numero, factorial;
+
+    // Solicitar datos al usuario
+    do{
+      numero = parseInt(prompt("Introduce un número positivo para calcular el factorial:"));
+      console.log(numero);
+    } while(esNumero(numero)!=true || numero<0);
+
+    // Realizar cálculos
+    if(numero == 0 || numero == 1){
+      factorial = 1;
+    } else {
+      factorial = numero;
+      for(var i=numero-1; i>0; i--){
+        factorial *= i;
+      }
+    }
+    
+    // Presentar resultado
+    imprimir(`El factorial de ${numero} es: ${factorial}`);
+  </script>
+</body>
+</html>

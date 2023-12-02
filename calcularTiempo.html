@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Calcular Tiempo</title>
+</head>
+<body>
+  <h1>ALGORITMO PARA CALCULAR TIEMPO EN RECORRER UNA DISTANCIA</h1>
+  <script>
+    // Funciones para escribir en el documento
+    function saltarLinea(saltos){
+      for(var i=0; i<saltos; i++){
+        document.write("<br>");
+      }
+    }
+
+    function imprimir(frase){
+      document.write(frase);
+      saltarLinea(2);
+    }
+
+    // Función para validar si es número
+    function esNumero(num){
+      return !isNaN(parseFloat(num)) && isFinite(num); 
+    }
+
+    // Definición de variables
+    var velocidad, distancia, tiempo;
+    var dias, horas, minutos;
+
+    // Solicitar datos al usuario
+    do{
+      velocidad = parseFloat(prompt("Introduce la velocidad a la que va el vehículo (km/hr)"));
+    }while(esNumero(velocidad)!=true || velocidad<=0);
+
+    do{
+      distancia = parseFloat(prompt("Introduce la distancia a recorrer (km)"));
+    }while(esNumero(distancia)!=true || distancia<=0);
+
+    // Realizar cálculos
+    dias = 0;
+    horas = 0;
+    minutos = 0;
+    tiempo = distancia/velocidad;
+
+    if(tiempo>=24){
+      dias = Math.trunc(tiempo/24);
+		  tiempo = tiempo-(dias*24);
+    }
+
+    if(tiempo<24 && tiempo>=1){
+      horas = Math.trunc(tiempo);
+		  tiempo = tiempo-horas;
+    }
+	
+	  minutos = Math.trunc(tiempo*60);
+
+    // Presentar resultado
+    imprimir(`El tiempo aproximado para recorrer ${distancia}km a una velocidad constante de ${velocidad}km/hr es:`);
+    imprimir(`${dias}  días,  ${horas} horas, ${minutos} minutos.`);
+  </script>
+</body>
+</html>

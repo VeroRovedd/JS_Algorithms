@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Números pares o impares</title>
+</head>
+<body>
+  <h1>ALGORITMO PARA SABER SI UN NÚMERO ES PAR O IMPAR</h1>
+  <script>
+    // Funciones para escribir en el documento
+    function saltarLinea(saltos){
+      for(var i=0; i<saltos; i++){
+        document.write("<br>");
+      }
+    }
+
+    function imprimir(frase){
+      document.write(frase);
+      saltarLinea(2);
+    }
+
+    // Función para validar si es número
+    function esNumero(num){
+      return !isNaN(parseFloat(num)) && isFinite(num); 
+    }
+
+    // Definición de variables
+    var numero;
+    var esPar;
+
+    // Solicitar datos al usuario
+    do{
+      numero = parseInt(prompt("Introduce un número entero"));
+    }while(esNumero(numero)!=true);
+
+    // Realizar cálculos
+    if(numero%2===0){
+      esPar = true;
+    } else {
+      esPar = false;
+    }
+
+    // Presentar resultado
+    imprimir(`El número ${numero} es ${esPar ? "par" : "impar."}`);
+  </script>
+</body>
+</html>

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Año bisiesto</title>
+</head>
+<body>
+  <h1>ALGORITMO PARA SABER SI UN AÑO ES BISIESTO</h1>
+  <script>
+    // Funciones para escribir en el documento
+    function saltarLinea(saltos){
+      for(var i=0; i<saltos; i++){
+        document.write("<br>");
+      }
+    }
+
+    function imprimir(frase){
+      document.write(frase);
+      saltarLinea(2);
+    }
+
+    // Función para validar si es número
+    function esNumero(num){
+      return !isNaN(parseFloat(num)) && isFinite(num); 
+    }
+
+    // Definición de variables
+    var anio;
+    var esBisiesto;
+
+    // Solicitar datos al usuario
+    do{
+      anio = parseInt(prompt("Ingresa un año"));
+    } while(esNumero(anio)!=true || anio<=0);
+
+    // Realizar cálculos
+    if(anio%400==0){
+      esBisiesto = true;
+    } else {
+      if(anio%4==0 && anio%100!=0){
+        esBisiesto = true;
+      } else {
+        esBisiesto = false;
+      }
+    }
+
+    // Presentar resultado
+    imprimir(`El año ${anio} ${esBisiesto==true ? "":"no"} es bisiesto`);
+  </script>
+</body>
+</html>

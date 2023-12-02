@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ordenamiento de números</title>
+</head>
+<body>
+  <h1>ALGORITMO PARA ORDENAR NÚMEROS</h1>
+
+  <script>
+    // Funciones para escribir en el documento
+    function saltarLinea(saltos){
+      for(var i=0; i<saltos; i++){
+        document.write("<br>");
+      }
+    }
+
+    function imprimir(frase){
+      document.write(frase);
+      saltarLinea(2);
+    }
+
+    // Función para validar si es número
+    function esNumero(num){
+      return !isNaN(parseFloat(num)) && isFinite(num); 
+    }
+
+    // Definición de variables
+    var n, num;
+    var numeros = new Array();
+
+    // Solicitar datos al usuario
+    do{
+      n = parseInt(prompt("Indica la cantidad de números a ordenar"));
+      console.log(n);
+    } while(esNumero(n)!=true || n<=0);
+
+    for(var i=0; i<n; i++){
+      let iteracion = i+1;
+      do{
+        num = parseFloat(prompt(`Ingrese el número ${iteracion}`));
+      }while(esNumero(num)!=true);
+      
+      numeros.push(num);
+      imprimir(`Número ${iteracion}: ${numeros[i]}`);
+    }
+
+    // Ordenar los números
+    for(var i=0; i<n-1; i++){
+      for(var j=i; j<n; j++){
+        let menor = numeros[i];
+        if(numeros[j]<numeros[i]){
+          menor = numeros[j];
+          numeros[j] = numeros[i];
+          numeros[i] = menor;
+        }
+      }
+    }
+
+    // Presentar resultado
+    imprimir("Los números ordenados de menor a mayor son: ");
+    for(var i=0; i<n; i++){
+      imprimir(numeros[i]);
+    }
+
+  </script>
+
+</body>
+</html>

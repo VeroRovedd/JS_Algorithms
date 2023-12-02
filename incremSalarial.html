@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Incremento Salarial</title>
+</head>
+<body>
+  <h1>ALGORITMO PARA CALCULAR EL INCREMENTO SALARIAL</h1>
+  <script>
+    // Funciones para escribir en el documento
+    function saltarLinea(saltos){
+      for(var i=0; i<saltos; i++){
+        document.write("<br>");
+      }
+    }
+
+    function imprimir(frase){
+      document.write(frase);
+      saltarLinea(2);
+    }
+
+    // Función para validar si es número
+    function esNumero(num){
+      return !isNaN(parseFloat(num)) && isFinite(num); 
+    }
+
+    // Definición de variables
+    var salario, incremento;
+
+    // Solicitar datos al usuario
+    do{
+      salario = parseFloat(prompt("Ingresa tu salario actual"));
+    } while(esNumero(salario)!=true || salario<=0);
+
+    // Realizar cálculos
+    switch (true) {
+      case (salario<15000):
+        incremento = salario * 1.2;
+        break;
+      case (salario>15000):
+        incremento = salario * 1.15;
+        break;
+      default:
+        incremento = salario;
+        break;
+    }
+
+    // Presentar resultado
+    imprimir(`Tu salario actual es de: $${salario}`);
+    imprimir(`Tu salario próximo sería de: $${incremento}`);
+  </script>
+</body>
+</html>
