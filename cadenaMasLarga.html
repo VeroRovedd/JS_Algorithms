@@ -63,16 +63,14 @@
 
     // Solicitar datos al usuario
     do{
-      numCadenas = parseInt(prompt("Ingresa el número de cadenas que vas a ingresar (entre 1 y 20)"));
-    } while(esNumero(numCadenas)!=true || numCadenas<=0 || numCadenas>20);
+      numCadenas = parseInt(prompt("Ingresa el número de cadenas que vas a ingresar (entre 2 y 20)"));
+    } while(esNumero(numCadenas)!=true || numCadenas<=1 || numCadenas>20);
 
     for (let i=0; i<numCadenas; i++) {
+      let n = i+1;
       var palabra="";
       do{
-        palabra = prompt("Ingresa una cadena " + i).trim();
-        //console.log(typeof(palabra));
-        //palabra.toString();
-        //palabra.trim();
+        palabra = prompt("Ingresa una cadena " + n).trim();
         console.log(palabra);
       } while(palabra == "" || palabra == undefined);
       arregloInput.push(palabra);
@@ -82,10 +80,9 @@
     arregloOutput = cadenasMasLargas(arregloInput);
 
     // Presentar resultado
-    console.log(arregloInput);
-    console.log(arregloOutput);
+    imprimir(`Las cadenas que ingresaste son: ${arregloInput}`);
+    imprimir("Las cadenas más largas son: ");
     imprimir(arregloOutput);
-    imprimir(``);
   </script>
 </body>
 </html>
